@@ -1,25 +1,17 @@
 
-
-function changeColor () {
-    
-    var randomValue = Math.random();
-    console.log(randomValue);
-
-     if (randomValue <= 0.2) {
-        document.body.style.backgroundColor = "red";
-    }else if (randomValue <= 0.4) {
-        document.body.style.backgroundColor = "blue";
-    } else if (randomValue <= 0.6) {
-        document.body.style.backgroundColor = "yellow";
-    }
-    else{
-        document.body.style.backgroundColor = "green";
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
     }
 
+    return color;
 }
 
-// Pass by value
-// string, number, boolean
+function changeColor () {
+    document.body.style.backgroundColor = getRandomColor();
+    console.log(getRandomColor())
+}
 
-// Pass by reference
-// array, object
+setInterval(changeColor, 1000);
